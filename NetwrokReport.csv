@@ -1,0 +1,16 @@
+Number of Nodes,5785
+Number of Edges,48995
+Average Degree,16.939
+Average Weighted Degree,50.43
+Diameter,12
+Average Path length,3.729896486
+Density,0.003
+Number of Weakly Connected Components,203
+Modularity,0.71
+Modularity with resolution,0.71
+Number of Communities in Modularity,243
+Description Length,261911.726
+Number of Communities in Statistical Inference,725
+Average Clustering Coefficient,0.746
+Total triangles,239609
+Sum change in Eigenvector Centrality,0.10313322
