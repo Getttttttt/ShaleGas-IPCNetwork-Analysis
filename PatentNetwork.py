@@ -3,6 +3,7 @@ import networkx as nx
 import numpy as np
 import plotly.graph_objects as go
 import matplotlib.pyplot as plt
+import seaborn as sns
 
 def load_network():
     # 读取CSV文件
@@ -57,20 +58,38 @@ if __name__ == '__main__':
 
     print("已成功计算重要性指标并保存为CSV文件。")
     
-    pos = nx.spring_layout(G)  # 为网络中的节点设置布局
+    degree_centrality = np.array(list(nx.degree_centrality(G).values()))
 
-    # 使用度中心性作为节点大小的例子
-    degree_centrality = nx.degree_centrality(G)
-    node_size = [v * 10000 for v in degree_centrality.values()]  # 调整大小比例因子以适合你的图形
+    # 计算CDF
+    degree_centrality_sorted = np.sort(degree_centrality)
+    cdf = np.arange(1, len(degree_centrality_sorted) + 1) / len(degree_centrality_sorted)
 
-    nx.draw_networkx(G, pos, node_size=node_size, with_labels=True, font_weight='bold')
+    # 绘制CDF图
+    plt.figure(figsize=(8, 5))
+    plt.plot(degree_centrality_sorted, cdf, marker='.', linestyle='none')
+    plt.xlabel('Degree Centrality')
+    plt.ylabel('CDF')
+    plt.title('CDF of Degree Centrality in Network')
+    plt.grid(True)
     plt.show()
     
-    degree_centrality = nx.degree_centrality(G)
+    # 使用同样的degree_centrality数据
+    plt.figure(figsize=(8, 5))
+    plt.hist(degree_centrality, bins=50, alpha=0.75)
+    plt.xlabel('Degree Centrality')
+    plt.ylabel('Number of Nodes')
+    plt.title('Histogram of Degree Centrality in Network')
+    plt.grid(True)
+    plt.show()
+    
+    # 计算指标间的相关性矩阵
+    corr = df_centrality.drop('node', axis=1).corr()
 
-    # 绘制条形图
+    # 绘制热图
     plt.figure(figsize=(10, 8))
-    plt.bar(range(len(degree_centrality)), list(degree_centrality.values()), align='center')
-    plt.xticks(range(len(degree_centrality)), list(degree_centrality.keys()), rotation='vertical')
-    plt.title('Degree Centrality of Nodes')
+    sns.heatmap(corr, annot=True, fmt=".2f", cmap='coolwarm', cbar=True, square=True)
+    plt.title('Correlation Between Different Centrality Measures')
+    plt.xticks(rotation=45, ha='right')
+    plt.yticks(rotation=45)
+    plt.tight_layout()  # 调整布局以避免剪切
     plt.show()
