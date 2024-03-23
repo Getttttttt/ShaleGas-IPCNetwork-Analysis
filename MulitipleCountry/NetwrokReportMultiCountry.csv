@@ -1,0 +1,17 @@
+,US,JP,CN,EP,BG
+Number of Nodes,2767.000 ,915.000 ,764.000 ,487.000 ,375.000 
+Number of Edges,21562.000 ,5880.000 ,3671.000 ,2757.000 ,1500.000 
+Average Degree,15.585 ,12.852 ,9.610 ,11.322 ,8.000 
+Average Weighted Degree,48.843 ,37.740 ,18.513 ,26.292 ,25.515 
+Diameter,10.000 ,12.000 ,12.000 ,7.000 ,10.000 
+Average Path length,3.651 ,4.449 ,4.291 ,3.062 ,3.107 
+Density,0.060 ,0.014 ,0.013 ,0.023 ,0.021 
+Number of Weakly Connected Components,81.000 ,32.000 ,56.000 ,32.000 ,32.000 
+Modularity,0.705 ,0.819 ,0.855 ,0.743 ,0.863 
+Modularity with resolution,0.705 ,0.819 ,0.855 ,0.743 ,0.863 
+Number of Communities in Modularity,105.000 ,44.000 ,68.000 ,41.000 ,35.000 
+Description Length,106767.150 ,21110.714 ,14616.366 ,10351.019 ,5282.218 
+Number of Communities in Statistical Inference,330.000 ,117.000 ,121.000 ,90.000 ,50.000 
+Average Clustering Coefficient,0.757 ,0.842 ,0.864 ,0.869 ,0.866 
+Total triangles,87106.000 ,25016.000 ,15873.000 ,12940.000 ,3940.000 
+Sum change in Eigenvector Centrality,0.061 ,0.107 ,0.068 ,0.070 ,0.088 
